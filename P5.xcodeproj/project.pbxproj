@@ -12,6 +12,8 @@
 		37C1949320976EFE00491213 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37C1949120976EFE00491213 /* Main.storyboard */; };
 		37C1949520976EFF00491213 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37C1949420976EFF00491213 /* Assets.xcassets */; };
 		37C1949820976EFF00491213 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37C1949620976EFF00491213 /* LaunchScreen.storyboard */; };
+		37C194A32097803000491213 /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37C194A12097803000491213 /* Delm-Medium.otf */; };
+		37C194A42097803000491213 /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37C194A22097803000491213 /* ThirstySoftRegular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		37C1949420976EFF00491213 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37C1949720976EFF00491213 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		37C1949920976EFF00491213 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37C194A12097803000491213 /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Delm-Medium.otf"; sourceTree = "<group>"; };
+		37C194A22097803000491213 /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,11 +61,21 @@
 				37C1948D20976EFE00491213 /* AppDelegate.swift */,
 				37C1948F20976EFE00491213 /* ViewController.swift */,
 				37C1949120976EFE00491213 /* Main.storyboard */,
+				37C194A52097803500491213 /* Fonts */,
 				37C1949420976EFF00491213 /* Assets.xcassets */,
 				37C1949620976EFF00491213 /* LaunchScreen.storyboard */,
 				37C1949920976EFF00491213 /* Info.plist */,
 			);
 			path = P5;
+			sourceTree = "<group>";
+		};
+		37C194A52097803500491213 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				37C194A12097803000491213 /* Delm-Medium.otf */,
+				37C194A22097803000491213 /* ThirstySoftRegular.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,6 +138,8 @@
 			files = (
 				37C1949820976EFF00491213 /* LaunchScreen.storyboard in Resources */,
 				37C1949520976EFF00491213 /* Assets.xcassets in Resources */,
+				37C194A42097803000491213 /* ThirstySoftRegular.otf in Resources */,
+				37C194A32097803000491213 /* Delm-Medium.otf in Resources */,
 				37C1949320976EFE00491213 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
