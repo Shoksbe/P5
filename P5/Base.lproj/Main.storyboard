@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Delm-Medium.otf">
+            <string>Delm-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -17,7 +22,75 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="tjc-4Q-ZCi">
+                                <rect key="frame" x="126" y="48" width="123" height="35"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="Up_sign" translatesAutoresizingMaskIntoConstraints="NO" id="Npg-EP-wzI">
+                                <rect key="frame" x="180" y="122" width="15" height="10"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oZ4-iH-C0i">
+                                <rect key="frame" x="107.5" y="144" width="160.5" height="29"/>
+                                <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="26"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PmQ-jl-s9w">
+                                <rect key="frame" x="37" y="183" width="300" height="300"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wCQ-8V-af8">
+                                        <rect key="frame" x="157" y="14" width="127.5" height="127.5"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Mk-Ry-0gL">
+                                        <rect key="frame" x="15" y="155" width="270" height="127.5"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="61E-gF-mzo">
+                                        <rect key="frame" x="15" y="14" width="127.5" height="127.5"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.062745098039215685" green="0.40000000000000002" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="9Gn-SE-UQZ"/>
+                                    <constraint firstAttribute="width" constant="300" id="v33-fp-2n6"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="V6E-xl-NnO">
+                                <rect key="frame" x="47.5" y="555" width="280" height="80"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BlM-bW-p1s" userLabel="Layout 1">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                        <state key="normal" backgroundImage="Layout1"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vLa-SD-gdw" userLabel="Layout 2">
+                                        <rect key="frame" x="100" y="0.0" width="80" height="80"/>
+                                        <state key="normal" image="Selected" backgroundImage="Layout2"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnc-7c-6GS" userLabel="Layout 3">
+                                        <rect key="frame" x="200" y="0.0" width="80" height="80"/>
+                                        <state key="normal" backgroundImage="Layout3"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.71764705882352942" green="0.84313725490196079" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="tjc-4Q-ZCi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="28" id="1dH-Yk-9Ht"/>
+                            <constraint firstItem="Npg-EP-wzI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JDq-de-sLW"/>
+                            <constraint firstItem="oZ4-iH-C0i" firstAttribute="top" secondItem="Npg-EP-wzI" secondAttribute="bottom" constant="12" id="JhQ-QH-ugf"/>
+                            <constraint firstItem="tjc-4Q-ZCi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ua2-TR-A9b"/>
+                            <constraint firstItem="V6E-xl-NnO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WpD-aV-G20"/>
+                            <constraint firstItem="Npg-EP-wzI" firstAttribute="top" secondItem="tjc-4Q-ZCi" secondAttribute="bottom" constant="39" id="YyJ-lb-G76"/>
+                            <constraint firstItem="PmQ-jl-s9w" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="acf-hh-991"/>
+                            <constraint firstItem="PmQ-jl-s9w" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bha-HD-Ybd"/>
+                            <constraint firstItem="oZ4-iH-C0i" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fnw-vX-ZzN"/>
+                            <constraint firstItem="V6E-xl-NnO" firstAttribute="top" secondItem="PmQ-jl-s9w" secondAttribute="bottom" constant="72" id="qMI-OH-qqQ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -25,4 +98,12 @@
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="Layout1" width="80" height="80"/>
+        <image name="Layout2" width="80" height="80"/>
+        <image name="Layout3" width="80" height="80"/>
+        <image name="Logo" width="123" height="35"/>
+        <image name="Selected" width="80" height="80"/>
+        <image name="Up_sign" width="15" height="10"/>
+    </resources>
 </document>
