@@ -15,6 +15,7 @@
 		37C194A32097803000491213 /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37C194A12097803000491213 /* Delm-Medium.otf */; };
 		37C194A42097803000491213 /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37C194A22097803000491213 /* ThirstySoftRegular.otf */; };
 		37C194AB2097B0F200491213 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37C194AA2097B0F100491213 /* Default-568h@2x.png */; };
+		37C194AD2097B76800491213 /* MainLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C194AC2097B76800491213 /* MainLayoutView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		37C194A12097803000491213 /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Delm-Medium.otf"; sourceTree = "<group>"; };
 		37C194A22097803000491213 /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
 		37C194AA2097B0F100491213 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		37C194AC2097B76800491213 /* MainLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLayoutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				37C1949120976EFE00491213 /* Main.storyboard */,
+				37C194AC2097B76800491213 /* MainLayoutView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 			files = (
 				37C1949020976EFE00491213 /* ViewController.swift in Sources */,
 				37C1948E20976EFE00491213 /* AppDelegate.swift in Sources */,
+				37C194AD2097B76800491213 /* MainLayoutView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,7 +337,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = P5/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/P5/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -350,7 +354,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = P5/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/P5/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
