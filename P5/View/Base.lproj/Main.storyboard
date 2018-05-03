@@ -30,7 +30,7 @@
                                 <rect key="frame" x="180" y="122" width="15" height="10"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oZ4-iH-C0i">
-                                <rect key="frame" x="83.5" y="144" width="210" height="30.5"/>
+                                <rect key="frame" x="107.5" y="144" width="160.5" height="29"/>
                                 <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="26"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -55,21 +55,21 @@
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                         <state key="normal" backgroundImage="Layout1"/>
                                         <connections>
-                                            <action selector="ActiveLayout:" destination="PmQ-jl-s9w" eventType="touchUpInside" id="75W-TS-Ck0"/>
+                                            <action selector="didTapLayoutButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0uk-HM-iNl"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vLa-SD-gdw" userLabel="Layout2Button">
                                         <rect key="frame" x="100" y="0.0" width="80" height="80"/>
                                         <state key="normal" image="Selected" backgroundImage="Layout2"/>
                                         <connections>
-                                            <action selector="ActiveLayout:" destination="PmQ-jl-s9w" eventType="touchUpInside" id="Rnj-dI-7dn"/>
+                                            <action selector="didTapLayoutButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LD7-Ya-sfz"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnc-7c-6GS" userLabel="Layout3Button">
                                         <rect key="frame" x="200" y="0.0" width="80" height="80"/>
                                         <state key="normal" backgroundImage="Layout3"/>
                                         <connections>
-                                            <action selector="ActiveLayout:" destination="PmQ-jl-s9w" eventType="touchUpInside" id="wml-GN-Y1u"/>
+                                            <action selector="didTapLayoutButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5F4-1P-WRI"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -90,6 +90,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="mainLayoutView" destination="PmQ-jl-s9w" id="Leo-rU-I1i"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
