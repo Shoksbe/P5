@@ -30,79 +30,17 @@
                                 <rect key="frame" x="180" y="122" width="15" height="10"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oZ4-iH-C0i">
-                                <rect key="frame" x="107.5" y="144" width="160.5" height="29"/>
+                                <rect key="frame" x="83.5" y="144" width="210" height="30.5"/>
                                 <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="26"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PmQ-jl-s9w" customClass="MainLayoutView" customModule="P5" customModuleProvider="target">
+                            <view autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PmQ-jl-s9w" customClass="MainLayoutView" customModule="P5" customModuleProvider="target">
                                 <rect key="frame" x="37" y="183" width="300" height="300"/>
-                                <subviews>
-                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eAj-7d-nxB" userLabel="BigTopLayout">
-                                        <rect key="frame" x="15" y="14" width="270" height="127.5"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="270" id="Lqg-uS-L2I"/>
-                                            <constraint firstAttribute="height" constant="127.5" id="siy-sb-PVO"/>
-                                        </constraints>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="61E-gF-mzo" userLabel="TopLeftLayout">
-                                        <rect key="frame" x="15" y="14" width="127.5" height="127.5"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="127.5" id="1j6-wG-lAo"/>
-                                            <constraint firstAttribute="height" constant="127.5" id="v4G-bA-rfA"/>
-                                        </constraints>
-                                    </imageView>
-                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="R01-Gf-BlW" userLabel="BottomLeftLayout">
-                                        <rect key="frame" x="15" y="158.5" width="127.5" height="127.5"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="127.5" id="ClL-aV-VCH"/>
-                                            <constraint firstAttribute="height" constant="127.5" id="yee-zY-JCw"/>
-                                        </constraints>
-                                    </imageView>
-                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tSj-b2-un7" userLabel="BottomRightLayout">
-                                        <rect key="frame" x="157" y="158.5" width="127.5" height="127.5"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="127.5" id="W9y-um-F6Y"/>
-                                            <constraint firstAttribute="width" constant="127.5" id="dPW-Y0-ham"/>
-                                        </constraints>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wCQ-8V-af8" userLabel="TopRightLayout">
-                                        <rect key="frame" x="157" y="14" width="127.5" height="127.5"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="127.5" id="UXH-iy-gt9"/>
-                                            <constraint firstAttribute="height" constant="127.5" id="atu-Tc-5iJ"/>
-                                        </constraints>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Mk-Ry-0gL" userLabel="BigBottomLayout">
-                                        <rect key="frame" x="15" y="158.5" width="270" height="127.5"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="270" id="34I-pD-0bn"/>
-                                            <constraint firstAttribute="height" constant="127.5" id="zAg-yX-jk3"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
                                 <color key="backgroundColor" red="0.062745098039215685" green="0.40000000000000002" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="eAj-7d-nxB" firstAttribute="top" secondItem="PmQ-jl-s9w" secondAttribute="top" constant="14" id="0gD-a9-FuE"/>
-                                    <constraint firstAttribute="trailing" secondItem="wCQ-8V-af8" secondAttribute="trailing" constant="15" id="1Qa-YF-WSk"/>
-                                    <constraint firstAttribute="bottom" secondItem="0Mk-Ry-0gL" secondAttribute="bottom" constant="14" id="4Af-PG-Ebq"/>
                                     <constraint firstAttribute="height" constant="300" id="9Gn-SE-UQZ"/>
-                                    <constraint firstItem="wCQ-8V-af8" firstAttribute="top" secondItem="PmQ-jl-s9w" secondAttribute="top" constant="14" id="Kcd-kh-glf"/>
-                                    <constraint firstItem="61E-gF-mzo" firstAttribute="top" secondItem="PmQ-jl-s9w" secondAttribute="top" constant="14" id="PUn-Af-86F"/>
-                                    <constraint firstAttribute="bottom" secondItem="R01-Gf-BlW" secondAttribute="bottom" constant="14" id="a2P-Q7-5cT"/>
-                                    <constraint firstAttribute="bottom" secondItem="tSj-b2-un7" secondAttribute="bottom" constant="14" id="aTz-ON-zIU"/>
-                                    <constraint firstItem="61E-gF-mzo" firstAttribute="leading" secondItem="PmQ-jl-s9w" secondAttribute="leading" constant="15" id="bVx-SV-VWH"/>
-                                    <constraint firstAttribute="trailing" secondItem="tSj-b2-un7" secondAttribute="trailing" constant="15" id="jV0-I9-bwp"/>
-                                    <constraint firstAttribute="trailing" secondItem="0Mk-Ry-0gL" secondAttribute="trailing" constant="15" id="pGz-4e-Ebc"/>
-                                    <constraint firstItem="R01-Gf-BlW" firstAttribute="leading" secondItem="PmQ-jl-s9w" secondAttribute="leading" constant="15" id="ues-HM-sAl"/>
                                     <constraint firstAttribute="width" constant="300" id="v33-fp-2n6"/>
-                                    <constraint firstItem="eAj-7d-nxB" firstAttribute="leading" secondItem="PmQ-jl-s9w" secondAttribute="leading" constant="15" id="yj9-Nd-ZYk"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="Layout1Button" destination="BlM-bW-p1s" id="T70-MP-97r"/>
@@ -111,7 +49,7 @@
                                 </connections>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="V6E-xl-NnO" userLabel="LayoutButton">
-                                <rect key="frame" x="47.5" y="555" width="280" height="80"/>
+                                <rect key="frame" x="47" y="555" width="280" height="80"/>
                                 <subviews>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BlM-bW-p1s" userLabel="Layout1Button">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
