@@ -21,9 +21,9 @@ class MainLayoutView: UIView {
         }
     }
     
-    @IBOutlet weak var Layout1Button: UIButton!
-    @IBOutlet weak var Layout2Button: UIButton!
-    @IBOutlet weak var Layout3Button: UIButton!
+    @IBOutlet private weak var Layout1Button: UIButton!
+    @IBOutlet private weak var Layout2Button: UIButton!
+    @IBOutlet private weak var Layout3Button: UIButton!
 
 
     private func setButtonLayout(_ layout: Layout) {
