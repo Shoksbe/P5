@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setLayout(2)
+        mainLayoutView.layout = .twoTopAndOneBottom
     }
     
     //This view contains layouts for photos

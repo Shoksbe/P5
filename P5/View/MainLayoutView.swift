@@ -25,6 +25,9 @@ class MainLayoutView: UIView {
     @IBOutlet private weak var Layout2Button: UIButton!
     @IBOutlet private weak var Layout3Button: UIButton!
 
+    @IBOutlet private weak var Layout1: UIView!
+    @IBOutlet private weak var Layout2: UIView!
+    @IBOutlet private weak var Layout3: UIView!
 
     private func setButtonLayout(_ layout: Layout) {
         //Remove mask "Selected"
@@ -46,74 +49,20 @@ class MainLayoutView: UIView {
         }
     }
     
+    
     private func setLayout(_ layout: Layout) {
         
-        for view in self.subviews {
-            view.removeFromSuperview()
-        }
+        Layout1.isHidden = true
+        Layout2.isHidden = true
+        Layout3.isHidden = true
 
         switch layout {
         case .oneTopAndTwoBottom: // BigTop, BottomLeft, BottomRight
-            
-            //BigTop
-            let bigTop = UIImageView(frame: CGRect(x: 15, y: 15, width: 270, height: 127.5))
-            bigTop.backgroundColor = UIColor.white
-            
-            //BottomLeft
-            let bottomLeft = UIImageView(frame: CGRect(x: 15, y: 157.5, width: 127.5, height: 127.5))
-            bottomLeft.backgroundColor = UIColor.white
-            
-            //BottomRight
-            let bottomRight = UIImageView(frame: CGRect(x: 157.5, y: 157.5, width: 127.5, height: 127.5))
-            bottomRight.backgroundColor = UIColor.white
-
-            // Add UIView as a Subview
-            self.addSubview(bigTop)
-            self.addSubview(bottomLeft)
-            self.addSubview(bottomRight)
-
+            Layout1.isHidden = false
         case .twoTopAndOneBottom: // BigBottom, TopLeft, TopRight
-            
-            //BigBottom
-            let bigBottom = UIImageView(frame: CGRect(x: 15, y: 157.5, width: 270, height: 127.5))
-            bigBottom.backgroundColor = UIColor.white
-            
-            //TopLeft
-            let topLeft = UIImageView(frame: CGRect(x: 15, y: 15, width: 127.5, height: 127.5))
-            topLeft.backgroundColor = UIColor.white
-            
-            //TopRight
-            let topRight = UIImageView(frame: CGRect(x: 157.5, y: 15, width: 127.5, height: 127.5))
-            topRight.backgroundColor = UIColor.white
-            
-            // Add UIView as a Subview
-            self.addSubview(bigBottom)
-            self.addSubview(topLeft)
-            self.addSubview(topRight)
-
+            Layout2.isHidden = false
         case .twoTopAndTwoBottom: // TopLeft, topRight, BottomLeft, BottomRight
-            
-            //TopLeft
-            let topLeft = UIImageView(frame: CGRect(x: 15, y: 15, width: 127.5, height: 127.5))
-            topLeft.backgroundColor = UIColor.white
-            
-            //TopRight
-            let topRight = UIImageView(frame: CGRect(x: 157.5, y: 15, width: 127.5, height: 127.5))
-            topRight.backgroundColor = UIColor.white
-            
-            //BottomLeft
-            let bottomLeft = UIImageView(frame: CGRect(x: 15, y: 157.5, width: 127.5, height: 127.5))
-            bottomLeft.backgroundColor = UIColor.white
-            
-            //BottomRight
-            let bottomRight = UIImageView(frame: CGRect(x: 157.5, y: 157.5, width: 127.5, height: 127.5))
-            bottomRight.backgroundColor = UIColor.white
-            
-            // Add UIView as a Subview
-            self.addSubview(topLeft)
-            self.addSubview(topRight)
-            self.addSubview(bottomLeft)
-            self.addSubview(bottomRight)
+            Layout3.isHidden = false
         }
     }
 
