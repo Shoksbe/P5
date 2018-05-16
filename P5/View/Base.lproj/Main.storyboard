@@ -73,28 +73,29 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ixa-EH-r6d" userLabel="Layout1">
                                         <rect key="frame" x="-0.66666666666665719" y="-0.33333333333334281" width="300.66666666666663" height="300"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AddButton" translatesAutoresizingMaskIntoConstraints="NO" id="dIO-I7-1UR" userLabel="BigTop">
-                                                <rect key="frame" x="15" y="15.000000000000007" width="270.66666666666669" height="127.66666666666669"/>
+                                            <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AddButton" translatesAutoresizingMaskIntoConstraints="NO" id="dIO-I7-1UR" userLabel="BigTop">
+                                                <rect key="frame" x="15" y="15" width="270.66666666666669" height="128"/>
                                                 <color key="backgroundColor" red="0.96119298769999995" green="0.99137395250000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="1bo-eE-lqB">
-                                                <rect key="frame" x="15" y="157.66666666666666" width="270.66666666666669" height="127.33333333333334"/>
+                                                <rect key="frame" x="15" y="158.00000000000003" width="270.66666666666669" height="126.99999999999997"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AddButton" translatesAutoresizingMaskIntoConstraints="NO" id="CYz-UQ-FVl" userLabel="BottomLeft">
-                                                        <rect key="frame" x="0.0" y="0.0" width="128" height="127.33333333333333"/>
+                                                    <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AddButton" translatesAutoresizingMaskIntoConstraints="NO" id="CYz-UQ-FVl" userLabel="BottomLeft">
+                                                        <rect key="frame" x="0.0" y="0.0" width="128" height="127"/>
                                                         <color key="backgroundColor" red="0.97463911800000003" green="0.97463911800000003" blue="0.97463911800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="CYz-UQ-FVl" secondAttribute="height" multiplier="1:1" id="2pN-Id-2ho"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AddButton" translatesAutoresizingMaskIntoConstraints="NO" id="PiW-V2-W68" userLabel="BottomRight">
-                                                        <rect key="frame" x="143" y="0.0" width="127.66666666666669" height="127.33333333333333"/>
+                                                    <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AddButton" translatesAutoresizingMaskIntoConstraints="NO" id="PiW-V2-W68" userLabel="BottomRight">
+                                                        <rect key="frame" x="143" y="0.0" width="127.66666666666669" height="127"/>
                                                         <color key="backgroundColor" red="0.97463911800000003" green="0.97463911800000003" blue="0.97463911800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </imageView>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.094117647060000004" green="0.4039215686" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="1bo-eE-lqB" firstAttribute="top" secondItem="dIO-I7-1UR" secondAttribute="bottom" constant="15" id="9Z3-WT-l3I"/>
                                             <constraint firstAttribute="trailing" secondItem="1bo-eE-lqB" secondAttribute="trailing" constant="15" id="XGn-AB-ygW"/>
@@ -111,20 +112,20 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="oT3-F8-JD4">
                                                 <rect key="frame" x="15" y="15" width="270" height="128"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AddButton" translatesAutoresizingMaskIntoConstraints="NO" id="jl4-t5-YME" userLabel="TopLeft">
+                                                    <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AddButton" translatesAutoresizingMaskIntoConstraints="NO" id="jl4-t5-YME" userLabel="TopLeft">
                                                         <rect key="frame" x="0.0" y="0.0" width="127.66666666666667" height="128"/>
                                                         <color key="backgroundColor" red="0.96119298769999995" green="0.99137395250000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="jl4-t5-YME" secondAttribute="height" multiplier="1:1" id="1nz-af-eEY"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AddButton" translatesAutoresizingMaskIntoConstraints="NO" id="sLn-nJ-2ro" userLabel="TopRight">
+                                                    <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AddButton" translatesAutoresizingMaskIntoConstraints="NO" id="sLn-nJ-2ro" userLabel="TopRight">
                                                         <rect key="frame" x="142.66666666666666" y="0.0" width="127.33333333333334" height="128"/>
                                                         <color key="backgroundColor" red="0.97463911800000003" green="0.97463911800000003" blue="0.97463911800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </imageView>
                                                 </subviews>
                                             </stackView>
-                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AddButton" translatesAutoresizingMaskIntoConstraints="NO" id="hys-wk-mEd" userLabel="BigBottom">
+                                            <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AddButton" translatesAutoresizingMaskIntoConstraints="NO" id="hys-wk-mEd" userLabel="BigBottom">
                                                 <rect key="frame" x="15" y="158" width="270" height="127"/>
                                                 <color key="backgroundColor" red="0.96119298769999995" green="0.99137395250000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </imageView>
@@ -146,32 +147,36 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Gqj-nI-mU2">
                                                 <rect key="frame" x="15" y="15" width="270.66666666666669" height="128"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AddButton" translatesAutoresizingMaskIntoConstraints="NO" id="WJz-KM-pAf" userLabel="TopLeft">
+                                                    <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AddButton" translatesAutoresizingMaskIntoConstraints="NO" id="WJz-KM-pAf" userLabel="TopLeft">
                                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                         <color key="backgroundColor" red="0.96119298769999995" green="0.99137395250000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <gestureRecognizers/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="WJz-KM-pAf" secondAttribute="height" multiplier="1:1" id="If4-f7-0zd"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AddButton" translatesAutoresizingMaskIntoConstraints="NO" id="FZz-76-Z8Q" userLabel="TopRight">
+                                                    <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AddButton" translatesAutoresizingMaskIntoConstraints="NO" id="FZz-76-Z8Q" userLabel="TopRight">
                                                         <rect key="frame" x="143" y="0.0" width="127.66666666666669" height="128"/>
                                                         <color key="backgroundColor" red="0.96119298769999995" green="0.99137395250000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <gestureRecognizers/>
                                                     </imageView>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="cBo-xB-Pza">
-                                                <rect key="frame" x="15" y="157.66666666666666" width="270.66666666666669" height="127.33333333333334"/>
+                                                <rect key="frame" x="15" y="158.00000000000003" width="270.66666666666669" height="126.99999999999997"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AddButton" translatesAutoresizingMaskIntoConstraints="NO" id="ylI-1h-slw" userLabel="BottomLeft">
-                                                        <rect key="frame" x="0.0" y="0.0" width="128" height="127.33333333333333"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="128" height="127"/>
                                                         <color key="backgroundColor" red="0.96119298769999995" green="0.99137395250000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <gestureRecognizers/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="ylI-1h-slw" secondAttribute="height" multiplier="1:1" id="AcO-xd-HcR"/>
                                                         </constraints>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AddButton" translatesAutoresizingMaskIntoConstraints="NO" id="3qN-Um-XTh" userLabel="BottomRight">
-                                                        <rect key="frame" x="143" y="0.0" width="127.66666666666669" height="127.33333333333333"/>
+                                                        <rect key="frame" x="143" y="0.0" width="127.66666666666669" height="127"/>
                                                         <color key="backgroundColor" red="0.97463911800000003" green="0.97463911800000003" blue="0.97463911800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <gestureRecognizers/>
                                                     </imageView>
                                                 </subviews>
                                             </stackView>
@@ -212,6 +217,16 @@
                                     <outlet property="Layout2Button" destination="vLa-SD-gdw" id="m1b-E3-Ygm"/>
                                     <outlet property="Layout3" destination="0qq-xt-V1P" id="qVi-Z9-5tN"/>
                                     <outlet property="Layout3Button" destination="hnc-7c-6GS" id="l3a-FE-Ugy"/>
+                                    <outletCollection property="ImageView" destination="dIO-I7-1UR" collectionClass="NSMutableArray" id="sds-Dc-tvP"/>
+                                    <outletCollection property="ImageView" destination="CYz-UQ-FVl" collectionClass="NSMutableArray" id="W98-ds-Q2T"/>
+                                    <outletCollection property="ImageView" destination="PiW-V2-W68" collectionClass="NSMutableArray" id="Fju-qk-7JI"/>
+                                    <outletCollection property="ImageView" destination="jl4-t5-YME" collectionClass="NSMutableArray" id="tI2-vh-Hsq"/>
+                                    <outletCollection property="ImageView" destination="sLn-nJ-2ro" collectionClass="NSMutableArray" id="jpF-0U-ppT"/>
+                                    <outletCollection property="ImageView" destination="hys-wk-mEd" collectionClass="NSMutableArray" id="qJ4-NS-tXm"/>
+                                    <outletCollection property="ImageView" destination="WJz-KM-pAf" collectionClass="NSMutableArray" id="5cf-Gj-Bvz"/>
+                                    <outletCollection property="ImageView" destination="FZz-76-Z8Q" collectionClass="NSMutableArray" id="uWG-IH-jmk"/>
+                                    <outletCollection property="ImageView" destination="ylI-1h-slw" collectionClass="NSMutableArray" id="kpg-yK-fhe"/>
+                                    <outletCollection property="ImageView" destination="3qN-Um-XTh" collectionClass="NSMutableArray" id="byr-UU-0cp"/>
                                 </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe left to share" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W9f-Jy-KzU">
@@ -333,20 +348,20 @@
                                 <exclude reference="2pT-Mo-e4e"/>
                                 <exclude reference="GUN-DQ-5es"/>
                                 <exclude reference="j9b-hy-kuh"/>
+                                <exclude reference="YCN-V0-jzH"/>
                                 <exclude reference="4tO-0h-EIo"/>
                                 <exclude reference="7Xd-Yt-XbE"/>
                                 <exclude reference="AVe-0j-Whs"/>
                                 <exclude reference="MOb-vd-UiB"/>
                                 <exclude reference="h5V-Ec-GG6"/>
-                                <exclude reference="YCN-V0-jzH"/>
-                                <exclude reference="riH-nN-0F0"/>
-                                <exclude reference="ThB-rP-hRo"/>
-                                <exclude reference="ick-SB-5rp"/>
-                                <exclude reference="nqM-7F-s1h"/>
-                                <exclude reference="fuW-Kn-zHl"/>
                                 <exclude reference="JhC-Ns-XcQ"/>
                                 <exclude reference="TJK-XF-emo"/>
                                 <exclude reference="Zyi-k5-WgS"/>
+                                <exclude reference="riH-nN-0F0"/>
+                                <exclude reference="fuW-Kn-zHl"/>
+                                <exclude reference="ThB-rP-hRo"/>
+                                <exclude reference="ick-SB-5rp"/>
+                                <exclude reference="nqM-7F-s1h"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
@@ -366,18 +381,18 @@
                                 <include reference="MOb-vd-UiB"/>
                                 <exclude reference="9aj-OE-tnU"/>
                                 <include reference="h5V-Ec-GG6"/>
+                                <include reference="JhC-Ns-XcQ"/>
+                                <include reference="TJK-XF-emo"/>
+                                <exclude reference="TS7-EX-vyO"/>
+                                <include reference="Zyi-k5-WgS"/>
+                                <exclude reference="gFs-VK-Wwe"/>
+                                <exclude reference="zqr-MA-pVx"/>
                                 <exclude reference="0Dd-MS-Q9g"/>
                                 <include reference="ThB-rP-hRo"/>
                                 <exclude reference="fMW-N2-abN"/>
                                 <exclude reference="h8C-cv-Ch4"/>
                                 <exclude reference="ick-SB-5rp"/>
                                 <include reference="nqM-7F-s1h"/>
-                                <exclude reference="zqr-MA-pVx"/>
-                                <include reference="JhC-Ns-XcQ"/>
-                                <include reference="TJK-XF-emo"/>
-                                <exclude reference="TS7-EX-vyO"/>
-                                <include reference="Zyi-k5-WgS"/>
-                                <exclude reference="gFs-VK-Wwe"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">

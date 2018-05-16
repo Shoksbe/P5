@@ -8,13 +8,23 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    var currentImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mainLayoutView.layout = .twoTopAndOneBottom
+        
+        for view in mainLayoutView.ImageView {
+            
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(setImage(_:)))
+            
+            view.isUserInteractionEnabled = true
+            view.addGestureRecognizer(tapGestureRecognizer)
+        }
     }
-    
+
     //This view contains layouts for photos
     @IBOutlet weak var mainLayoutView: MainLayoutView!
     
@@ -35,6 +45,38 @@ class ViewController: UIViewController {
         default:
             break
         }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        currentImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func setImage(_ sender: UITapGestureRecognizer) {
+        
+        //
+        //Background image option
+        //
+        currentImageView = sender.view as! UIImageView
+        
+        currentImageView.clipsToBounds = true
+        currentImageView.contentMode = .scaleAspectFill
+        
+        //
+        //PickerController settings
+        //
+        let imageController = UIImagePickerController()
+        
+        imageController.delegate = self
+        imageController.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        
+        self.present(imageController, animated: true, completion: nil)
+        
+        
+
+        
+        
+        
     }
 }
 

@@ -29,6 +29,8 @@ class MainLayoutView: UIView {
     @IBOutlet private weak var Layout2: UIView!
     @IBOutlet private weak var Layout3: UIView!
 
+    @IBOutlet var ImageView: [UIImageView]!
+    
     private func setButtonLayout(_ layout: Layout) {
         //Remove mask "Selected"
         Layout1Button.setImage(nil, for: .normal)
@@ -55,7 +57,7 @@ class MainLayoutView: UIView {
         Layout1.isHidden = true
         Layout2.isHidden = true
         Layout3.isHidden = true
-
+        
         switch layout {
         case .oneTopAndTwoBottom: // BigTop, BottomLeft, BottomRight
             Layout1.isHidden = false
