@@ -14,13 +14,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Default layout
         mainLayoutView.layout = .twoTopAndOneBottom
         
+        //Browse all the views that can receive a photo in mainViewLayout to add the gestures.
         for view in mainLayoutView.ImageView {
-            
+            //GestureRecognizer to be able to click on the layout where the user wants to add a photo
             let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(setImage(_:)))
-            
+
+            //Enabling user interaction on the layout
             view.isUserInteractionEnabled = true
+            
+            //Add gesture's layout
             view.addGestureRecognizer(tapGestureRecognizer)
         }
     }
