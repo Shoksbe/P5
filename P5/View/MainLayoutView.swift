@@ -16,6 +16,7 @@ class MainLayoutView: UIView {
     
     var layout: Layout = .twoTopAndOneBottom {
         didSet {
+            clearLayout()
             setLayout(layout)
             setButtonLayout(layout)
         }
@@ -30,7 +31,14 @@ class MainLayoutView: UIView {
     @IBOutlet private weak var Layout3: UIView!
 
     @IBOutlet var ImageView: [UIImageView]!
-    
+
+    private func clearLayout() {
+        for view in ImageView {
+            view.contentMode = .center
+            view.image = UIImage(named: "AddButton")
+        }
+    }
+
     private func setButtonLayout(_ layout: Layout) {
         //Remove mask "Selected"
         Layout1Button.setImage(nil, for: .normal)

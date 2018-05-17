@@ -8,6 +8,15 @@
 
 import UIKit
 
+extension UIView {
+    func asImage() -> UIImage {
+        let renderer = UIGraphicsImageRenderer(bounds: bounds)
+        return renderer.image { rendererContext in
+            layer.render(in: rendererContext.cgContext)
+        }
+    }
+}
+
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     var currentImageView: UIImageView!
@@ -24,10 +33,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         //Browse all the views that can receive a photo in mainViewLayout to add the gestures.
         for view in mainLayoutView.ImageView {
+            
             //GestureRecognizer to be able to click on the layout where the user wants to add a photo
             let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(setImage(_:)))
+            
             //Enabling user interaction on the layout
             view.isUserInteractionEnabled = true
+            
             //Add gesture's layout
             view.addGestureRecognizer(tapGestureRecognizer)
         }
@@ -66,28 +78,36 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        currentImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        
+        //Save image choosen by the user
+        let choosenImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+        
+        //Some image's option
+        currentImageView.clipsToBounds = true
+        currentImageView.contentMode = .scaleAspectFill
+        
+        //Affect image choosen by the user on the layout
+        currentImageView.image = choosenImage
+        
+        //Close pickerController
         self.dismiss(animated: true, completion: nil)
     }
     
     @objc func setImage(_ sender: UITapGestureRecognizer) {
         
-        //
-        //Background image option
-        //
+        //save the selected layout to put the chosen photo
         currentImageView = sender.view as! UIImageView
-        
-        currentImageView.clipsToBounds = true
-        currentImageView.contentMode = .scaleAspectFill
         
         //
         //PickerController settings
         //
         let imageController = UIImagePickerController()
-        
         imageController.delegate = self
-        imageController.sourceType = UIImagePickerControllerSourceType.photoLibrary
         
+        //Selection of the source of photos, here it will be the library but it can also be the camera.
+        imageController.sourceType = .photoLibrary
+        
+        //present the pickerController for choos a image
         self.present(imageController, animated: true, completion: nil)
     }
     
@@ -95,28 +115,50 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         switch sender.state {
         case .began, .changed:
             transformLayoutViewWith(gesture: sender)
+        case .cancelled, .ended:
+            transformLayoutToIdentity()
+            shareLayout()
         default:
             break
         }
     }
     
     private func transformLayoutViewWith(gesture: UIPanGestureRecognizer) {
+
+        //Get the finger position on the screen
         let translation = gesture.translation(in: mainLayoutView)
         
         //Landscape orientation
         //Translation only on Leftside
         if DeviceInfo.Orientation.isLandscape {
-            if translation.x < 0 {
+            if translation.x < 0 && translation.x > -30  {
                 mainLayoutView.transform = CGAffineTransform(translationX: translation.x, y: 0)
             }
         }
         //Portrait orientation
         //Translation only on Upside
         if DeviceInfo.Orientation.isPortrait {
-            if translation.y < 0 {
+            if translation.y < 0 && translation.y > -30 {
                 mainLayoutView.transform = CGAffineTransform(translationX: 0, y: translation.y)
             }
         }
+    }
+    
+    private func shareLayout() {
+
+        //Transformation of UIView into UIImage
+        let imageToshare = mainLayoutView.asImage()
+
+        //Creation and display of the UIActivityController
+        let activityVC = UIActivityViewController(activityItems: [imageToshare], applicationActivities: [])
+        activityVC.popoverPresentationController?.sourceView = self.view
+        self.present(activityVC, animated: true, completion: nil)
+    }
+    
+    private func transformLayoutToIdentity() {
+        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
+            self.mainLayoutView.transform = .identity
+        }, completion:nil)
     }
     
     struct DeviceInfo {
@@ -137,6 +179,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                         : UIApplication.shared.statusBarOrientation.isPortrait
                 }
             }
-        }}
+        }
+    }
 }
 
