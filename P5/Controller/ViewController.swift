@@ -8,37 +8,35 @@
 
 import UIKit
 
-extension UIView {
-    func asImage() -> UIImage {
-        let renderer = UIGraphicsImageRenderer(bounds: bounds)
-        return renderer.image { rendererContext in
-            layer.render(in: rendererContext.cgContext)
-        }
-    }
-}
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    var currentImageView: UIImageView!
+    // MARK: Variables
     
+    //Contains the layout chosen by the user during UITapGesture
+    var currentImageView: UIImageView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Default layout
+        //Default layout at launch
         mainLayoutView.layout = .twoTopAndOneBottom
-
-        layout = LayoutSettings(layout: mainLayoutView)
     }
 
+    // MARK: IBOutlet
+        
     //This view contains layouts for photos
     @IBOutlet weak var mainLayoutView: MainLayoutView!
     
+    // MARK: IBAction
     @IBAction func didTapLayoutButton(_ sender: UIButton) {
         changeLayout(sender.tag)
     }
+    
     @IBAction func didTapLayout(_ sender: UITapGestureRecognizer) {
         addImage(in: sender)
     }
+    
     @IBAction func dragLayout(_ sender: UIPanGestureRecognizer) {
         switch sender.state {
         case .began, .changed:
@@ -51,6 +49,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             break
         }
     }
+    
+    // MARK: Functions
     
     //Activates the layout chooses via the button
     private func changeLayout(_ selectedButtonTag: Int) {
@@ -74,27 +74,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         //Landscape orientation
         //Translation only on Leftside
-        if DeviceInfo.Orientation.isLandscape {
+        if UIApplication.shared.statusBarOrientation.isLandscape {
             if translation.x < 0 && translation.x > -30  {
                 mainLayoutView.transform = CGAffineTransform(translationX: translation.x, y: 0)
             }
         }
         //Portrait orientation
         //Translation only on Upside
-        if DeviceInfo.Orientation.isPortrait {
+        if UIApplication.shared.statusBarOrientation.isPortrait {
             if translation.y < 0 && translation.y > -30 {
                 mainLayoutView.transform = CGAffineTransform(translationX: 0, y: translation.y)
             }
-        }
-    }
-    
-    private func shareLayout() {
-        //Transformation of UIView into UIImage
-        if let imageToShare = layout.toImage() {
-            //Creation and display of the UIActivityController
-            let activityVC = UIActivityViewController(activityItems: [imageToShare], applicationActivities: [])
-            activityVC.popoverPresentationController?.sourceView = self.view
-            self.present(activityVC, animated: true, completion: nil)
         }
     }
     
@@ -123,6 +113,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.present(imageController, animated: true, completion: nil)
     }
 
+    // MARK: PickerController
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
 
         //Save image choosen by the user
@@ -138,26 +129,38 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         //Close pickerController
         self.dismiss(animated: true, completion: nil)
     }
-
-    private struct DeviceInfo {
-        struct Orientation {
-            // indicate current device is in the LandScape orientation
-            static var isLandscape: Bool {
-                get {
-                    return UIDevice.current.orientation.isValidInterfaceOrientation
-                        ? UIDevice.current.orientation.isLandscape
-                        : UIApplication.shared.statusBarOrientation.isLandscape
-                }
-            }
-            // indicate current device is in the Portrait orientation
-            static var isPortrait: Bool {
-                get {
-                    return UIDevice.current.orientation.isValidInterfaceOrientation
-                        ? UIDevice.current.orientation.isPortrait
-                        : UIApplication.shared.statusBarOrientation.isPortrait
-                }
-            }
+    
+    private func shareLayout() {
+                
+        //Transformation of UIView into UIImage
+        if let imageToShare = TransformView.toImage(mainLayout: mainLayoutView) {
+            
+            //Creation and display of the UIActivityController
+            let activityVC = UIActivityViewController(activityItems: [imageToShare], applicationActivities: [])
+            activityVC.popoverPresentationController?.sourceView = self.view
+            self.present(activityVC, animated: true, completion: nil)
         }
     }
+
+//    private struct DeviceInfo {
+//        struct Orientation {
+//            // indicate current device is in the LandScape orientation
+//            static var isLandscape: Bool {
+//                get {
+//                    return UIDevice.current.orientation.isValidInterfaceOrientation
+//                        ? UIDevice.current.orientation.isLandscape
+//                        : UIApplication.shared.statusBarOrientation.isLandscape
+//                }
+//            }
+//            // indicate current device is in the Portrait orientation
+//            static var isPortrait: Bool {
+//                get {
+//                    return UIDevice.current.orientation.isValidInterfaceOrientation
+//                        ? UIDevice.current.orientation.isPortrait
+//                        : UIApplication.shared.statusBarOrientation.isPortrait
+//                }
+//            }
+//        }
+//    }
 }
 
