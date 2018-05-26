@@ -36,6 +36,9 @@ class MainLayoutView: UIView {
         for view in ImageView {
             view.contentMode = .center
             view.image = UIImage(named: "AddButton")
+            
+        
+            
         }
     }
 
