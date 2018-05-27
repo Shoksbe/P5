@@ -54,16 +54,46 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     //Activates the layout chooses via the button
     private func changeLayout(_ selectedButtonTag: Int) {
-        //get the button tag to identify the layout
-        switch selectedButtonTag {
-        case 1: // BigTop, BottomLeft, BottomRight
-            mainLayoutView.layout = .oneTopAndTwoBottom
-        case 2: // BigBottom, TopLeft, TopRight
-            mainLayoutView.layout = .twoTopAndOneBottom
-        case 3: // TopLeft, topRight, BottomLeft, BottomRight
-            mainLayoutView.layout = .twoTopAndTwoBottom
-        default:
-            break
+        
+        //
+        //View disappear
+        //
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.mainLayoutView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+        }, completion: { (success) in
+            
+            if success {
+                
+                //
+                //Change layout
+                //
+                
+                //get the button tag to identify the layout
+                switch selectedButtonTag {
+                case 1: // BigTop, BottomLeft, BottomRight
+                    self.mainLayoutView.layout = .oneTopAndTwoBottom
+                case 2: // BigBottom, TopLeft, TopRight
+                    self.mainLayoutView.layout = .twoTopAndOneBottom
+                case 3: // TopLeft, topRight, BottomLeft, BottomRight
+                    self.mainLayoutView.layout = .twoTopAndTwoBottom
+                default:
+                    break
+                }
+
+                //
+                //View appear
+                //
+                
+                UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
+                    self.mainLayoutView.transform = .identity
+                }, completion:nil)
+            }
+        })
+        
+        
+        func showMainView() {
+            
         }
     }
 
@@ -141,26 +171,5 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             self.present(activityVC, animated: true, completion: nil)
         }
     }
-
-//    private struct DeviceInfo {
-//        struct Orientation {
-//            // indicate current device is in the LandScape orientation
-//            static var isLandscape: Bool {
-//                get {
-//                    return UIDevice.current.orientation.isValidInterfaceOrientation
-//                        ? UIDevice.current.orientation.isLandscape
-//                        : UIApplication.shared.statusBarOrientation.isLandscape
-//                }
-//            }
-//            // indicate current device is in the Portrait orientation
-//            static var isPortrait: Bool {
-//                get {
-//                    return UIDevice.current.orientation.isValidInterfaceOrientation
-//                        ? UIDevice.current.orientation.isPortrait
-//                        : UIApplication.shared.statusBarOrientation.isPortrait
-//                }
-//            }
-//        }
-//    }
 }
 
