@@ -42,7 +42,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         case .began, .changed:
             transformLayoutViewWith(gesture: sender)
         case .cancelled, .ended:
-            transformLayoutToIdentity {
+            transformLayoutToIdentity(gesture: sender) {
                 shareLayout()
             }
         default:
@@ -105,24 +105,59 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         //Landscape orientation
         //Translation only on Leftside
         if UIApplication.shared.statusBarOrientation.isLandscape {
-            if translation.x < 0 && translation.x > -30  {
+            if translation.x < 0 {
                 mainLayoutView.transform = CGAffineTransform(translationX: translation.x, y: 0)
             }
         }
+        
+        
         //Portrait orientation
         //Translation only on Upside
         if UIApplication.shared.statusBarOrientation.isPortrait {
-            if translation.y < 0 && translation.y > -30 {
+            if translation.y < 0 {
                 mainLayoutView.transform = CGAffineTransform(translationX: 0, y: translation.y)
             }
         }
     }
     
-    private func transformLayoutToIdentity(completion: () -> ()) {
+    private func transformLayoutToIdentity(gesture: UIPanGestureRecognizer, completion: () -> ()) {
+       
+        //Layout return to identity with a "Boing" effect
         UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
             self.mainLayoutView.transform = .identity
         }, completion:nil)
-        completion()
+        
+        //Get the finger position on the screen
+        let translation = gesture.translation(in: mainLayoutView)
+        
+        //Get the screenSize for the belowing condition
+        let screenSize = UIScreen.main.bounds
+        let screenHeight = screenSize.height
+        let screenWidth = screenSize.width
+        
+        /**
+         The following two conditions only enable sharing if
+         the view has exceeded more than half the
+         distance to the edge of the screen.
+        */
+        
+        //Landscape orientation
+        if UIApplication.shared.statusBarOrientation.isLandscape {
+            if translation.x < -(screenWidth/4) {
+                completion()
+            } else {
+                return
+            }
+        }
+        
+        //Portrait orientation
+        if UIApplication.shared.statusBarOrientation.isPortrait {
+            if translation.y < -(screenHeight/4) {
+                completion()
+            } else {
+                return
+            }
+        }
     }
 
     private func addImage(in sender: UITapGestureRecognizer) {
