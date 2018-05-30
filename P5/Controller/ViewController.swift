@@ -11,24 +11,23 @@ import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    // MARK: Variables
+    // MARK: Properties
     
-    //Contains the layout chosen by the user during UITapGesture
+    ///Contains the layout chosen by the user during UITapGesture
     var currentImageView: UIImageView!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        //Default layout at launch
-        mainLayoutView.layout = .twoTopAndOneBottom
-    }
-
-    // MARK: IBOutlet
-        
-    //This view contains layouts for photos
+    //
+    // MARK: Outlets
+    //
+    
+    ///This view contains all layouts for photos
     @IBOutlet weak var mainLayoutView: MainLayoutView!
     
-    // MARK: IBAction
+    
+    //
+    // MARK: Actions
+    //
+    
     @IBAction func didTapLayoutButton(_ sender: UIButton) {
         changeLayout(sender.tag)
     }
@@ -42,17 +41,31 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         case .began, .changed:
             transformLayoutViewWith(gesture: sender)
         case .cancelled, .ended:
-            transformLayoutToIdentity(gesture: sender) {
+            if isCorrectPositionForSharing(gesture: sender) {
                 shareLayout()
+            } else {
+                transformLayoutToIdentity()
             }
         default:
             break
         }
     }
     
-    // MARK: Functions
     
-    //Activates the layout chooses via the button
+    //
+    // MARK: Methods
+    //
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        //Default layout at launch
+        mainLayoutView.layout = .twoTopAndOneBottom
+    }
+    
+    /// Activate the user-selected layout
+    ///
+    /// - Parameter selectedButtonTag: button's tag
     private func changeLayout(_ selectedButtonTag: Int) {
         
         //
@@ -90,13 +103,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 }, completion:nil)
             }
         })
-        
-        
-        func showMainView() {
-            
-        }
     }
 
+    
+    /// Move the view by following the user's finger.
+    ///
+    /// - Parameter gesture: PanGesture ctivate by the user
     private func transformLayoutViewWith(gesture: UIPanGestureRecognizer) {
 
         //Get the finger position on the screen
@@ -120,12 +132,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
-    private func transformLayoutToIdentity(gesture: UIPanGestureRecognizer, completion: () -> ()) {
-       
-        //Layout return to identity with a "Boing" effect
-        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
-            self.mainLayoutView.transform = .identity
-        }, completion:nil)
+    
+    /// Check if the view position has exceeded at least half the distance to the top of the screen in *portrait* and to the left in *landscape* mode.
+    ///
+    /// - Parameter gesture: View's position
+    /// - Returns: *True* if the position is correct and *false* otherwise.
+    private func isCorrectPositionForSharing(gesture: UIPanGestureRecognizer)-> Bool {
+        
+        var isCorrectPosition: Bool = false
         
         //Get the finger position on the screen
         let translation = gesture.translation(in: mainLayoutView)
@@ -144,22 +158,48 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         //Landscape orientation
         if UIApplication.shared.statusBarOrientation.isLandscape {
             if translation.x < -(screenWidth/4) {
-                completion()
-            } else {
-                return
+                
+                //Send layout outside screen "LEFT"
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.mainLayoutView.transform =  CGAffineTransform(translationX: -screenWidth, y: 0)
+                })
+                
+                isCorrectPosition = true
             }
         }
         
         //Portrait orientation
         if UIApplication.shared.statusBarOrientation.isPortrait {
             if translation.y < -(screenHeight/4) {
-                completion()
-            } else {
-                return
+                
+                //Send layout outside screen "UP"
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.mainLayoutView.transform =  CGAffineTransform(translationX: 0, y: -screenHeight)
+                })
+                
+                isCorrectPosition = true
             }
         }
+        
+        return isCorrectPosition
     }
-
+    
+    /// Return the view to the initial position
+    private func transformLayoutToIdentity(){
+        //Layout return to identity with a "Boing" effect
+        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
+            self.mainLayoutView.transform = .identity
+        }, completion:nil)
+    }
+    
+    
+    //
+    // MARK: PickerController
+    //
+    
+    /// Activate the pickerController to add an image in the chosen layout.
+    ///
+    /// - Parameter sender: The view clicked by the user
     private func addImage(in sender: UITapGestureRecognizer) {
 
         //save the selected layout to put the chosen photo
@@ -178,7 +218,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.present(imageController, animated: true, completion: nil)
     }
 
-    // MARK: PickerController
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
 
         //Save image choosen by the user
@@ -195,6 +234,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.dismiss(animated: true, completion: nil)
     }
     
+    
+    //
+    // MARK: ActivityController
+    //
+    
+    /// Convert the view in imageView and lunch activityController for sharing the picture
     private func shareLayout() {
                 
         //Transformation of UIView into UIImage
@@ -204,6 +249,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             let activityVC = UIActivityViewController(activityItems: [imageToShare], applicationActivities: [])
             activityVC.popoverPresentationController?.sourceView = self.view
             self.present(activityVC, animated: true, completion: nil)
+                        
+            activityVC.completionWithItemsHandler = {(activityType: UIActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
+                if !completed || completed {
+                    self.transformLayoutToIdentity()
+                }
+            }
         }
     }
 }

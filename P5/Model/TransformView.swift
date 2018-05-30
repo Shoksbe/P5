@@ -11,6 +11,11 @@ import UIKit
 
 class TransformView{
 
+    
+    /// Converts UIView to UIImage
+    ///
+    /// - Parameter mainLayout: The UIView to be converted
+    /// - Returns: The UIView converted in UIIMage
     static func toImage(mainLayout: UIView) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(mainLayout.bounds.size, mainLayout.isOpaque, 0.0)
         defer { UIGraphicsEndImageContext() }
